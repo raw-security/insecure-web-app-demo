@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nutzername</th>
+      <th scope="col">Verfügbare Mittel</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+      <th scope="row">{{ user['id'] }}</th>
+      <td>{{ user['username'] }}</td>
+      <td>{{ user['account_balance'] }}</td>
+      <td>
+        <form action="/admin/add_balance" method="POST">
+          <input type="number" name="user_id" value="{{ user['id'] }}" hidden>
+          <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInput" placeholder="0" name="add_balance">
+          </div>
+          <button class="btn btn-primary w-100 py-2" type="submit">Geld Aufladen</button>
+        </form>
+        <form action="/admin/delete_user" method="POST">
+          <input type="number" name="user_id" value="{{ user['id'] }}" hidden>
+          <button class="btn btn-outline-danger" type="submit">Löschen</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

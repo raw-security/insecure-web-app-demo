@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<main class="form-signin w-100 m-auto">
+  <form style="max-width: 400px; margin: auto;" action="" method="POST">
+    <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Einloggen</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="name" name="username">
+      <label for="floatingInput">Nutzername</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Passwort" name="password">
+      <label for="floatingPassword">Passwort</label>
+    </div>
+
+    <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+  </form>
+</main>
+{% endblock %}
