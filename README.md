@@ -7,6 +7,6 @@ Part of our training materials for secure coding and security oriented code revi
 To run the app locally do the following:
 ```
 docker build -t web-app-demo .
-docker run -it web-app-demo
+docker run -it -p 8080:8080 web-app-demo
 ```
 
