@@ -15,10 +15,10 @@ RUN pip install -r requirements.txt
 COPY templates/ templates/.
 COPY app.py .
 COPY schema.sql .
+COPY start.sh .
 
-RUN cat schema.sql | sqlite3 /tmp/shop.db
-RUN chmod ugo+w /tmp/shop.db
+RUN chmod +x ./start.sh
 
 USER www
 
-CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
+CMD ["./start.sh"]
